@@ -9,7 +9,7 @@ const fs = require("fs");
 const path = require("path");
 const fsPromise = require("fs").promises;
 
-let deployementData = {};
+let deployementData = [];
 
 async function deployPriceOracle() {
   console.log("Deploying the Price Oracle V1 ...");
@@ -93,11 +93,12 @@ async function main() {
 
   console.log("All Contracts deployed , Storing Data ...");
 
+  console.log(deployementData);
   // Storing the deployed info in the
-  await fsPromise.appendFile(
-    path.join(__dirname, "..", "Constants", "data.js"),
-    deployementData
-  );
+  // await fsPromise.appendFile(
+  //   path.join(__dirname, "..", "Constants", "data.js"),
+  //   deployementData
+  // );
 }
 
 main().catch((error) => {
