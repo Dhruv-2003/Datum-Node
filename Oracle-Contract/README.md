@@ -1,13 +1,21 @@
-# Sample Hardhat Project
+# Client Side Contract deployer
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+This is a hardhat folder with the Client Side Contracts to be deployed on the new Chain you wanna build your Oracle on.
 
-Try running some of the following tasks:
+1. Set the env Variables
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
+```bash
+cp .env.example .env
+```
+
+2. Add `RPC_URL` for your chain and `PRIVATE_KEY` of the wallet containing funds to deploy the contracts.
+
+If you are running OpStack Rollup , refer [here](https://stack.optimism.io/docs/build/getting-started/#use-your-rollup)
+
+3. Deploy the contracts
+
+```bash
 npx hardhat run scripts/deploy.js
 ```
+
+The Contract Addresses should be saved in the `Constants/data.js` file
