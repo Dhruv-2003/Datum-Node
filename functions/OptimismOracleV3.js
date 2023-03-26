@@ -2,12 +2,14 @@ const { ethers, formatEther } = require("ethers");
 require("dotenv").config();
 
 const {
-  BridgeWallet,
   OracleContractABI,
-  OracleContractAddress,
   ConsumerContractABI,
-  ConsumerContractAddress,
 } = require("../src/OptimismOracleV3/constants.js");
+
+const {
+  OptimisticOracleV3ContractAddress,
+  OptimisticConsumerV3ContractAddress,
+} = require("../Constants/data.js");
 
 const OracleProvider = new ethers.JsonRpcProvider(process.env.DEST_RPC_URL);
 const ConsumerProvider = new ethers.JsonRpcProvider(process.env.ORIGIN_RPC_URL);
@@ -18,13 +20,13 @@ const wallet_Oracle = new ethers.Wallet(privatekey, OracleProvider);
 const wallet_Consumer = new ethers.Wallet(privatekey, ConsumerProvider);
 
 const OracleContract = new ethers.Contract(
-  OracleContractAddress,
+  OptimisticOracleV3ContractAddress,
   OracleContractABI,
   OracleProvider
 );
 
 const ConsumerContract = new ethers.Contract(
-  ConsumerContractAddress,
+  OptimisticConsumerV3ContractAddress,
   ConsumerContractABI,
   ConsumerProvider
 );
