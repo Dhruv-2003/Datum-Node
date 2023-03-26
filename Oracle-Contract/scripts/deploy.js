@@ -5,6 +5,11 @@
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
 const hre = require("hardhat");
+const fs = require("fs");
+const path = require("path");
+const fsPromise = require("fs").promises;
+
+let deployementData = {};
 
 async function deployPriceOracle() {
   console.log("Deploying the Price Oracle V1 ...");
@@ -12,6 +17,8 @@ async function deployPriceOracle() {
   const priceOracle = await PriceOracle.deploy();
 
   await priceOracle.deployed();
+
+  deployementData.push({ PriceOracleV1: priceOracle.address });
 
   console.log(`Price Oracle V1 deployed at ${priceOracle.address}`);
 }
@@ -22,6 +29,8 @@ async function deployVRFOracle() {
   const vrfOracle = await VRFOracle.deploy();
 
   await vrfOracle.deployed();
+
+  deployementData.push({ VRFOracleV2: vrfOracle.address });
 
   console.log(`VRF Oracle V2 deployed at ${vrfOracle.address}`);
 }
@@ -35,6 +44,8 @@ async function deployOptimisticOracleV2() {
 
   await ooV2.deployed();
 
+  deployementData.push({ OptimisticOracleV2: ooV2.address });
+
   console.log(`Optimistic Oracle V2 deployed at ${ooV2.address}`);
 }
 
@@ -47,6 +58,8 @@ async function deployOptimisticOracleV3() {
 
   await ooV3.deployed();
 
+  deployementData.push({ OptimisticOracleV3: ooV3.address });
+
   console.log(`Optimistic Oracle V2 deployed at ${ooV3.address}`);
 }
 
@@ -56,6 +69,8 @@ async function deployAPIOracle() {
   const apiOracle = await APIOracle.deploy();
 
   await apiOracle.deployed();
+
+  deployementData.push({ APIOracle: apiOracle.address });
 
   console.log(`API Oracle deployed at ${apiOracle.address}`);
 }
@@ -75,6 +90,14 @@ async function main() {
 
   // API Oracle
   await deployAPIOracle();
+
+  console.log("All Contracts deployed , Storing Data ...");
+
+  // Storing the deployed info in the
+  await fsPromise.appendFile(
+    path.join(__dirname, "..", "Constants", "data.json"),
+    deployementData
+  );
 }
 
 main().catch((error) => {
