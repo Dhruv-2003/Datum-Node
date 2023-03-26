@@ -2,12 +2,14 @@ const { ethers, formatEther } = require("ethers");
 require("dotenv").config();
 
 const {
-  BridgeWallet,
   PriceConsumerContractABI,
-  PriceConsumerContractAddress,
   PriceOracleContractABI,
-  PriceOracleContractAddress,
 } = require("../src/PriceOracle/constants.js");
+
+const {
+  PriceConsumerContractAddress,
+  PriceOracleContractAddress,
+} = require("../Constants/data.js");
 
 const PriceOracleProvider = new ethers.JsonRpcProvider(
   process.env.DEST_RPC_URL

@@ -1,7 +1,6 @@
-const BridgeWallet = `0xe22eCBbA8fB9C0124eeCb6AfE0bf6A487424989f`;
 // addresses of the deployed contracts
-const OracleContractAddress = `0x48749fde6370FBfc9a45C5EFB559253D72B7Cd53`; //deployed on sepolia testnet
-const ConsumerContractAddress = `0x2A271E8aE4B553e1289B6e7A3747D6cc2feEA8dC`; // deployed on goerli testnet
+// const OracleContractAddress = `0x48749fde6370FBfc9a45C5EFB559253D72B7Cd53`; //deployed on sepolia testnet
+// const ConsumerContractAddress = `0x2A271E8aE4B553e1289B6e7A3747D6cc2feEA8dC`; // deployed on goerli testnet
 
 const OracleContractABI = [
   {
@@ -564,9 +563,6 @@ const ConsumerContractABI = [
 ];
 
 module.exports = {
-  BridgeWallet,
   OracleContractABI,
-  OracleContractAddress,
   ConsumerContractABI,
-  ConsumerContractAddress,
 };
