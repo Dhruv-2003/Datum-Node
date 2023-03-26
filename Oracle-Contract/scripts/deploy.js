@@ -95,7 +95,7 @@ async function main() {
 
   // Storing the deployed info in the
   await fsPromise.appendFile(
-    path.join(__dirname, "..", "Constants", "data.json"),
+    path.join(__dirname, "..", "Constants", "data.js"),
     deployementData
   );
 }

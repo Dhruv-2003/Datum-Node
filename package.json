@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ethers": "^6.2.2"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "name": "datum-node",
+  "description": "Steps to run your own Oracle Node",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dhruv-2003/Datum-Node.git"
+  },
+  "keywords": [],
+  "author": "Dhruv-2003",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dhruv-2003/Datum-Node/issues"
+  },
+  "homepage": "https://github.com/Dhruv-2003/Datum-Node#readme"
+}
